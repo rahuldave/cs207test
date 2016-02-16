@@ -1,12 +1,17 @@
 
-import unittest
+from mymath import myaverage, mymedian
 
-from mymath import mysum
+import unittest
 
 class MyTest(unittest.TestCase):
     
     def test_mymath(self):
-        self.assertEqual(mysum(2,3), 5)
-
-if __name__ == '__main__':
-    unittest.main()
+        self.assertEqual(myaverage([2,3]), 2.5)
+        
+    def test_char(self):
+        with self.assertRaises(TypeError):
+            myaverage(['a',3])
+            
+    def test_zerol(self):
+        with self.assertRaises(ValueError):
+            myaverage([])
